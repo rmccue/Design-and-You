@@ -1,0 +1,198 @@
+/*
+Butter 	#FCE94F #EDD400 #C4A000
+Orange 	#FCAF3E #F57900 #CE5C00
+Chocolate 	#E9B96E #C17D11 #8F5902
+Chameleon 	#8AE234 #73D216 #4E9A06
+Sky Blue 	#729FCF #3465A4 #204A87
+Plum 		#AD7FA8 #75507B #5C3566
+Scarlet Red	#EF2929 #CC0000 #A40000
+Aluminium 	#EEEEEC #D3D7CF #BABDB6
+		#888A85 #555753 #2E3436
+*/
+body {
+	font: 12px/18px Verdana, sans-serif;
+	color: #2E3436;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: Georgia, Times New Roman, Times, serif;
+	line-height: 18px;
+	margin: 0;
+	padding: 0;
+}
+h1 { font-size: 18px; margin-top: 18px; }
+h2 { font-size: 16px; margin-top: 16px; margin-bottom: 12px; }
+h3 { font-size: 1.6em; }
+h4 { font-size: 1.5em; }
+h5 { font-size: 1.4em; }
+h6 { font-size: 1.2em; }
+p {
+	margin: 18px 0 0;
+}
+
+pre, code {
+	font-family: monospace;
+	font-size: 1.2em;
+}
+pre {
+	margin-top: 18px;
+	padding-left: 10px;
+}
+
+a {
+	color: #00f;
+	text-decoration: none;
+}
+	a:hover { color: #f00; }
+
+#header {
+	border-bottom: 1px solid #D3D7CF;
+	padding-bottom: 1em;
+}
+#header h1 {
+	font: 1.6em/1.7 Georgia;
+}
+#header > .container > ul {
+	margin: 1em 0;
+}
+#header li {
+	display: inline;
+	position: relative;
+	float: left;
+	background: #8AE234;
+	border: 1px solid #4E9A06;
+	margin-right: 1%;
+	width: 19%;
+}
+#header > .container > ul > li.current {
+	background: #4E9A06;
+}
+#header li a {
+	text-decoration: none;
+	display: block;
+	padding: 5px 5px;
+	width: 100%;
+	color: #2E3436;
+}
+#header li.current > a {
+	color: #fff;
+}
+#header li:hover, #header li.hover {
+	background: #73D216;
+	color: #2E3436;
+}
+#header li ul {
+	display: none;
+	background: #fff;
+	position: absolute;
+	top: 28px;
+	left: -1px;
+	width: 100%;
+	z-index: 10;
+	clear: both;
+	border: 1px solid #4E9A06;
+	border-top: none;
+}
+#header li:hover ul, #header li.hover ul {
+	display: block;
+}
+#header li li {
+	float: none;
+	width: 100%;
+	display: block;
+	border: none;
+	margin: 0;
+}
+.container {
+	max-width: 960px;
+	width: 80%;
+	margin: 0 auto;
+}
+
+#main, #sidebar {
+	padding: 1em 0;
+}
+#main {
+	width: 60%;
+	float: left;
+}
+#main ul, #sidebar ul {
+	margin: 18px 0 0;
+}
+
+form {
+	max-width: 600px;
+	width: 60%;
+	margin: 10px auto;
+	text-align: center;
+	border: 5px solid #EEEEEC;
+}
+label {
+	display: block;
+	clear: both;
+	margin: 12px 0 0;
+	font: bold 12px Georgia, serif;
+	text-align: left;
+}
+label input, label textarea {
+	float: right;
+	font-weight: normal;
+	width: 62%;
+}
+label textarea {
+	height: 10em;
+}
+#recaptcha_area {
+	margin: 1em auto;
+}
+form.error, input.error {
+	border: 5px solid red;
+}
+
+.aside {
+	float: right;
+	margin: 10px 0 10px 7px;
+	padding: 8px;
+	background: #729FCF;
+	color: #fff;
+	width: 40%;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+}
+.alert {
+	background: #FCE94F url("images/exclamation-yellow.png") no-repeat 10px center;
+	color: #000;
+	margin: 10px 0 -8px;
+	padding: 8px 0;
+	padding-left: 70px;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+}
+.alert .first {
+	margin: 0;
+}
+
+#sidebar {
+	width: 37%;
+	float: left;
+	border-left: 1px solid #D3D7CF;
+	margin-left: 1%;
+	padding-left: 1%;
+}
+
+#footer {
+	color: #888A85;
+	text-align: center;
+	border-top: 1px solid #D3D7CF;
+	padding: 1em 0;
+}
+#footer a {
+	color: #555753;
+	text-decoration: none;
+}
+#footer a img {
+	border: 0;
+}

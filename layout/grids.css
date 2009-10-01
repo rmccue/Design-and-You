@@ -1,0 +1,10 @@
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8 { float: left; margin-right: 1%; }
+.col-1 { width: 11.5%; }
+.col-2 { width: 24%; }
+.col-3 { width: 36.5%; }
+.col-4 { width: 49%; }
+.col-5 { width: 61.5%; }
+.col-6 { width: 74%; }
+.col-6 { width: 86.5%; }
+.col-8 { width: 99%; }
+.clearer { clear: both; }
