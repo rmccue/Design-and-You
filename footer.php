@@ -4,7 +4,7 @@
 	<div id="footer">
 		<div class="container">
 			<p><a rel="license" href="http://creativecommons.org/licenses/by-nc/2.5/au/"><img alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc/2.5/au/88x31.png" /></a><br /><span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/Text" property="dc:title" rel="dc:type">Design, and You!</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://it.ryanmccue.info/" property="cc:attributionName" rel="cc:attributionURL">Ryan McCue</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/2.5/au/">Creative Commons Attribution-Noncommercial 2.5 Australia License</a>.</p>
-			<p>Full source code for this site is available at <a href="https://github.com/rmccue/Design-and-You">GitHub</a>.</p>
+			<p>Full source code for this site is available at <a href="http://github.com/rmccue/Design-and-You">GitHub</a>.</p>
 		</div>
 	</div>
 
