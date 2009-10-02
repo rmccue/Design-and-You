@@ -74,7 +74,7 @@ function process_email($privatekey) {
 
 	$to = 'ryanmccue@cubegames.net';
 	$subject = 'From Contact Form: ' . htmlspecialchars($_POST['subject']);
-	$from = htmlspecialchars($_POST['email']);
+	$from = str_replace("\n", '', htmlspecialchars($_POST['email']));
 
 	$message = $_POST['message'];
 
