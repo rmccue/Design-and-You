@@ -6,6 +6,9 @@ if(!isset($current)) {
 }
 
 $links = array(
+	'' => array(
+		'index' => 'Home'
+	),
 	'layout' => array(
 		'index' => 'Layout',
 		'grids' => 'Grids',
@@ -60,7 +63,11 @@ else {
 			if($current[0] == $url) {
 				$class .= ' current';
 			}
-			echo "\n\t\t\t\t<li class='$class'><a href='$prefix/$url/'>{$subs['index']}</a>";
+			$major_url = $url;
+			if(!empty($url)) {
+				$major_url .= '/';
+			}
+			echo "\n\t\t\t\t<li class='$class'><a href='$prefix/$major_url'>{$subs['index']}</a>";
 			unset($subs['index']);
 			if(!empty($subs)) {
 				echo "\n\t\t\t\t\t<ul>";
