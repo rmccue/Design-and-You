@@ -29,7 +29,6 @@ $messages = array();
 $error = null;
 
 if(!empty($_POST['submit'])) {
-	var_dump($_POST['submit']);
 	try {
 		$messages = process_email($privatekey);
 	}
@@ -51,9 +50,7 @@ function process_email($privatekey) {
 										$_POST["recaptcha_challenge_field"],
 										$_POST["recaptcha_response_field"]);
 
-		if ($resp->is_valid) {
-			echo "You got it!";
-		} else {
+		if (!$resp->is_valid) {
 			# set the error code so that we can display it
 			throw new Exception($resp->error);
 		}
@@ -68,6 +65,11 @@ function process_email($privatekey) {
 
 	if(!empty($missing)) {
 		return $missing;
+	}
+
+	if(($result = preg_match('/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i', $_POST['email'])) !== 1) {
+		var_dump($result);
+		return array('email');
 	}
 
 	$to = 'ryanmccue@cubegames.net';
@@ -95,18 +97,18 @@ if(!empty($_POST['subject']))
 	$subject = str_replace(array('"', "'"), '', htmlspecialchars($_POST['subject']));
 if(!empty($_POST['message']))
 	$message = str_replace(array('"', "'"), '', htmlspecialchars($_POST['message']));
-?>a
+?>
 			<div id="main">
 				<h1>Contact</h1>
 				<p>Need to get in contact for me for some reason? Use this handy form!</p>
 				<p><em>All fields are required.</em></p>
-				<?php if(!empty($messages)) {?><p class="error">The following fields need to be filled in: <?php echo implode($messages, ', ') ?></p><?php } ?>
-				<?php if($messages === true) {?><p class="success">Your email was successfully sent! I'll get in touch ASAP.</p><?php } ?>
-				<form action="contact.php" method="POST"<?php if(!empty($messages)) echo ' class="error"'; ?>>
-					<label>Name: <input type="text" name="name" value="<?php echo $name ?>"<?php if(in_array('name', $messages, true)) echo ' class="error"';?> /></label>
-					<label>Email: <input type="text" name="email" value="<?php echo $email ?>"<?php if(in_array('email', $messages, true)) echo ' class="error"';?> /></label>
-					<label>Subject: <input type="text" name="subject" value="<?php echo $subject ?>"<?php if(in_array('subject', $messages, true)) echo ' class="error"';?> /></label>
-					<label>Message: <textarea name="message"<?php if(in_array('message', $messages, true)) echo ' class="error"';?>><?php echo $message ?></textarea></label>
+				<?php if(is_array($messages) && !empty($messages)) {?><p class="error">The following fields have errors: <?php echo implode($messages, ', ') ?></p><?php } ?>
+				<?php if($messages === true) {?><p class="success"><strong>Your email was successfully sent! I'll get in touch ASAP.</strong></p><?php } ?>
+				<form action="contact.php" method="POST"<?php if(is_array($messages) && !empty($messages)) echo ' class="error"'; ?>>
+					<label>Name: <input type="text" name="name" value="<?php echo $name ?>"<?php if(is_array($messages) && in_array('name', $messages, true)) echo ' class="error"';?> /></label>
+					<label>Email: <input type="text" name="email" value="<?php echo $email ?>"<?php if(is_array($messages) && in_array('email', $messages, true)) echo ' class="error"';?> /></label>
+					<label>Subject: <input type="text" name="subject" value="<?php echo $subject ?>"<?php if(is_array($messages) && in_array('subject', $messages, true)) echo ' class="error"';?> /></label>
+					<label>Message: <textarea name="message"<?php if(is_array($messages) && in_array('message', $messages, true)) echo ' class="error"';?>><?php echo $message ?></textarea></label>
 					<div style="clear:both"></div>
 					<?php
 					echo recaptcha_get_html($publickey, $error);
